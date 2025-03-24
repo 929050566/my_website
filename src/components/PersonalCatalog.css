@@ -1,0 +1,30 @@
+.personal-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+  }
+  
+  .center-text {
+    text-align: center;
+  }
+  
+  .contact-info {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .contact-item {
+    margin-bottom: 10px;
+  }

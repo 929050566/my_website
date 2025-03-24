@@ -1,0 +1,75 @@
+/* src/components/BlogCatalog.css */
+.markdown-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 60%;
+    height: 100vh;
+    /* Full viewport height */
+    margin: 0 auto;
+    /* Center horizontally */
+    background-color: #163633;
+    /* Set background color to red */
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    /* Enable vertical scrolling if content exceeds height */
+    color: white;
+}
+
+
+.blog-all {
+    width: 90%;
+    height: 100vh;
+    /* Full viewport height */
+    margin: 0 auto;
+    /* Center horizontally */
+    background-color: white(241, 235, 235);
+    /* Set background color to red */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.back-button {
+    top: 10px;
+    left: 10px;
+    background-color: #51cabe;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    width: 100px;
+}
+
+.back-button:hover {
+    background-color: #61A4DA;
+}
+
+
+.history-title {
+    margin-bottom: 20px;
+}
+
+.blog-list {
+    width: 60%;
+    margin-bottom: 20px;
+}
+
+.blog-title {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: #163633;
+    transition: background-color 0.3s;
+    color: white;
+}
+
+.blog-title:hover {
+    background-color: #61A4DA;
+}

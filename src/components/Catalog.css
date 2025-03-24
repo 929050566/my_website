@@ -1,0 +1,38 @@
+/* src/components/Catalog.css */
+.catalog-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.catalog-nav button {
+  background-color: #163633;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.catalog-nav button:hover {
+  background-color: #61A4DA;
+}
+
+.catalog-base {
+  background-color: #163633;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.catalog-content{
+  background-color: 163633;
+  background-image: url(../images/bg0.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+
