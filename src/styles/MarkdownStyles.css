@@ -1,0 +1,61 @@
+.markdown-container {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.8;
+  color: #333;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Ensure left alignment */
+}
+
+.markdown-container .back-button {
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.markdown-container .back-button:hover {
+  background-color: #2980b9;
+}
+
+.markdown-content {
+  overflow-wrap: break-word;
+  text-align: left; /* Ensure left alignment for markdown content */
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3 {
+  color: #2c3e50;
+  margin-top: 1.5em;
+}
+
+.markdown-content p {
+  margin: 1em 0;
+}
+
+.markdown-content a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.markdown-content a:hover {
+  text-decoration: underline;
+}
+
+.markdown-content ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.markdown-content code {
+  background-color: #eef;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+}

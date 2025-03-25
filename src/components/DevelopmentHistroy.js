@@ -1,29 +1,28 @@
-// src/components/BlogCatalog.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './DevelopmentHistory.css';
-import { useState, useEffect } from 'react';
+import translations from '../i18n/translations';
 
-
-function DevelopmentHistroy() {
+function DevelopmentHistroy({ language }) {
   const [historyData, setHistoryData] = useState(new Map());
+  const t = translations[language];
 
   useEffect(() => {
-    // 假设您有一个 Map 存储历史记录数据
     const data = new Map([
-      ['2025-01-06', 'Added a blog listing page, todo: md documentation presentation is too ugly and in urgent need of optimization'],
-      ['2025-01-04', 'Build the blog page although this css is not good'],
-      ['2025-01-03', 'Build the home page'],
-      ['2025-01-01', 'Build the development history page'],
-      ['2024-12-31', 'The first day of building the website'],
+      ['2022-01-06', t.history1],
+      ['2022-01-04', t.history2],
+      ['2022-01-03', t.history3],
+      ['2022-01-01', t.history4],
+      ['2022-12-31', t.history5],
+      ['2023-01-03', t.history6],
     ]);
     setHistoryData(data);
-  }, []);
+  }, [language, t]);
 
   return (
     <div>
       <div className="history-all">
-        <div className='history-title'>        
-          <h1>Development Histroy</h1>
+        <div className="history-title">
+          <h1>{t.developmentHistory}</h1>
         </div>
         <div className="history-timeline">
           <div className="history-items">
@@ -36,10 +35,8 @@ function DevelopmentHistroy() {
           </div>
         </div>
       </div>
-    </div >
-
-  )
-
+    </div>
+  );
 }
 
 export default DevelopmentHistroy;

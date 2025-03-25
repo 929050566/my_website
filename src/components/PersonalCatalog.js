@@ -1,33 +1,39 @@
 import React from 'react';
-import profileImage from '../images/me2.jpg';
 import './PersonalCatalog.css';
+import translations from '../i18n/translations';
 
-function PersonalCatalog() {
+function PersonalCatalog({ language }) {
+  const t = translations[language];
+
   return (
     <div className="personal-page">
       <div className="header">
-        <img src={profileImage} alt="Profile" className="profile-image" />
-        <div>
-          <h1>Draven Zhang</h1>
-          <p>fullstack software engineer</p>
-          <p>I have worked in Tuya, Didi and Mango TV</p>
-          <p>Nanchang Hangkong University</p>
-        </div>
+        <h1>👋 {t.greeting}</h1>
       </div>
-      <div className="contact-info">
-        <h2>联系方式</h2>
-        <div className="contact-item">
-          <span>电话:</span>
-          <a href="tel:15879171525">+86 15879171525</a>
-        </div>
-        <div className="contact-item">
-          <span>电子邮箱:</span>
-          <a href="929050566@qq.com">929050566@qq.com</a>
-        </div>
-        <div className="contact-item">
-          <span>GitHub:</span>
-          <a href="https://github.com/929050566" target="_blank" rel="noopener noreferrer">https://github.com/929050566</a>
-        </div>
+      <div className="content">
+      <h3>{t.title}</h3>
+      <section>
+          <h3>{t.introductionTitle}</h3>
+          <p>{t.introduction1}</p>
+          <p>{t.introduction2}</p>
+        </section>
+        <section>
+          <h3>{t.skillsTitle}</h3>
+          <ul>
+            <li>{t.skill1}</li>
+            <li>{t.skill2}</li>
+            <li>{t.skill3}</li>
+            <li>{t.skill4}</li>
+            <li>{t.skill5}</li>
+            <li>{t.skill6}</li>
+            <li>{t.skill7}</li>
+            <li>{t.skill8}</li>
+          </ul>
+        </section>
+        <section className="contact">
+          <h3>{t.contactTitle}</h3>
+          <p>Email: <a href={`mailto:${t.email}`}>{t.email}</a></p>
+        </section>
       </div>
     </div>
   );
