@@ -19,6 +19,7 @@ const blogTranslations = {
     history4: "Build the development history page",
     history5: "The first day of building the website",
     history6: "Add i18n support",
+    history7: "Optimized the md documentation presentation",
   },
   zh: {
     blogCatalog: "博客目录",
@@ -40,6 +41,7 @@ const blogTranslations = {
     history4: "构建了开发历史页面",
     history5: "网站建设的第一天",
     history6: "新增多语言功能",
+    history7: "优化了md文档展示",
   },
 };
 
