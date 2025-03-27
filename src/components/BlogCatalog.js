@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';   
-import rehypeSlug from 'rehype-slug'; // 插件用于为标题生成 id
-          // markdown 对表格/删除线/脚注等的支持
-import MarkNav from 'markdown-navbar';          // markdown 目录
-// import 'markdown-navbar/dist/navbar.css';
+import remarkGfm from 'remark-gfm';
+import rehypeSlug from 'rehype-slug';
+import MarkNav from 'markdown-navbar';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism'; // Choose a theme
 import 'markdown-navbar/dist/navbar.css';
 import './BlogCatalog.css';
 import '../styles/MarkdownStyles.css';
@@ -88,6 +88,23 @@ function BlogCatalog({ language, _selectedBlog, setSelectedBlog }) {
           <div className="markdown-content">
             <ReactMarkdown
               components={{
+                code({ node, inline, className, children, ...props }) {
+                  const match = /language-(\w+)/.exec(className || '');
+                  return !inline && match ? (
+                    <SyntaxHighlighter
+                      style={materialDark}
+                      language={match[1]}
+                      PreTag="div"
+                      {...props}
+                    >
+                      {String(children).replace(/\n$/, '')}
+                    </SyntaxHighlighter>
+                  ) : (
+                    <code className={className} {...props}>
+                      {children}
+                    </code>
+                  );
+                },
                 img: ({ node, ...props }) => (
                   <img
                     {...props}
@@ -96,7 +113,6 @@ function BlogCatalog({ language, _selectedBlog, setSelectedBlog }) {
                     style={{ maxWidth: '100%' }}
                   />
                 ),
-
               }}
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeSlug]}
