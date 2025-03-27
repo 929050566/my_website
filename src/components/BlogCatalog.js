@@ -64,9 +64,9 @@ function BlogCatalog({ language, _selectedBlog, setSelectedBlog }) {
       )}
       {selectedBlog && (
         <div className="markdown-container">
-          <button className="back-button" onClick={() => setSelectedBlog(null)}>
+          {/* <button className="back-button" onClick={() => setSelectedBlog(null)}>
             {t.backToList}
-          </button>
+          </button> */}
           <div className="leftSide">
             <MarkNav
               className="toc"
@@ -96,6 +96,7 @@ function BlogCatalog({ language, _selectedBlog, setSelectedBlog }) {
                     style={{ maxWidth: '100%' }}
                   />
                 ),
+
               }}
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeSlug]}
