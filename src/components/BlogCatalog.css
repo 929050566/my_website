@@ -12,12 +12,32 @@
     background-color: #163633;
     /* Set background color to red */
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     overflow-y: auto;
     /* Enable vertical scrolling if content exceeds height */
     color: white;
+    scroll-behavior: smooth; /* 平滑滚动 */
 }
 
+.leftSide {
+    width: 250px; /* Fixed width for the TOC */
+    padding: 10px;
+    background-color: #f9f9f9; /* Optional: Light background for TOC */
+    border-right: 1px solid #ddd; /* Optional: Add a border to separate TOC */
+    overflow-y: auto; /* Enable scrolling if content overflows */
+    max-height: 100vh; /* Ensure it doesn't exceed viewport height */
+}
+
+.toc {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.markdown-content {
+    flex: 1; /* Take the remaining space */
+    padding: 20px;
+    overflow-x: auto; /* Handle horizontal overflow for markdown content */
+}
 
 .blog-all {
     width: 90%;

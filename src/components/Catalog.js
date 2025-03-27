@@ -9,6 +9,7 @@ function Catalog() {
     const [activeComponent, setActiveComponent] = useState('personal');
     const [language, setLanguage] = useState('en'); // New state for language
     const [isDrawerOpen, setIsDrawerOpen] = useState(false); // State for drawer
+    const [selectedBlog, setSelectedBlog] = useState(null); // State for selected blog
 
     const toggleLanguage = () => {
         setLanguage((prevLanguage) => (prevLanguage === 'en' ? 'zh' : 'en'));
@@ -25,7 +26,13 @@ function Catalog() {
                     <button className="catalog-button" onClick={() => setActiveComponent('personal')}>
                         {language === 'en' ? 'Home' : '首页'}
                     </button>
-                    <button className="catalog-button" onClick={() => setActiveComponent('blog')}>
+                    <button
+                        className="catalog-button"
+                        onClick={() => {
+                            setActiveComponent('blog');
+                            setSelectedBlog(null); // Reset selected blog to trigger re-render
+                        }}
+                    >
                         {language === 'en' ? 'Blog' : '博客'}
                     </button>
                     <button className="catalog-button" onClick={() => setActiveComponent('development')}>
@@ -40,7 +47,13 @@ function Catalog() {
                 {activeComponent === 'personal' && (
                     <PersonalCatalog language={language} toggleLanguage={toggleLanguage} />
                 )}
-                {activeComponent === 'blog' && <BlogCatalog language={language} />}
+                {activeComponent === 'blog' && (
+                    <BlogCatalog
+                        language={language}
+                        _selectedBlog={selectedBlog}
+                        setSelectedBlog={setSelectedBlog} // Pass the callback
+                    />
+                )}
                 {activeComponent === 'development' && <DevelopmentHistroy language={language} />}
             </div>
             {/* Sliding Drawer */}

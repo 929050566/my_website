@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';   
+import remarkGfm from 'remark-gfm';             // markdown 对表格/删除线/脚注等的支持
 import rehypeSlug from 'rehype-slug'; // 插件用于为标题生成 id
-          // markdown 对表格/删除线/脚注等的支持
 import MarkNav from 'markdown-navbar';          // markdown 目录
-// import 'markdown-navbar/dist/navbar.css';
+
 import 'markdown-navbar/dist/navbar.css';
 import './BlogCatalog.css';
 import '../styles/MarkdownStyles.css';
@@ -87,20 +86,20 @@ function BlogCatalog({ language, _selectedBlog, setSelectedBlog }) {
           </div>
           <div className="markdown-content">
             <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeSlug]} // 添加 rehype-slug 插件
+              children={content}
               components={{
                 img: ({ node, ...props }) => (
                   <img
                     {...props}
-                    src={require(`../blogs/${props.src}`)}
+                    src={props.src.startsWith('http') ? props.src : require(`../blogs/${props.src}`).default}
                     alt={props.alt}
                     style={{ maxWidth: '100%' }}
                   />
                 ),
-              }}
-              remarkPlugins={[remarkGfm]}
-              rehypePlugins={[rehypeSlug]}
+            }}
             >
-              {content}
             </ReactMarkdown>
           </div>
         </div>
