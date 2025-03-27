@@ -4,6 +4,8 @@ import translations from '../i18n/translations';
 
 function DevelopmentHistroy({ language }) {
   const [historyData, setHistoryData] = useState(new Map());
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
   const t = translations[language];
 
   useEffect(() => {
@@ -17,7 +19,14 @@ function DevelopmentHistroy({ language }) {
       ['2021-12-31', t.history5],
     ]);
     setHistoryData(data);
+    setCurrentPage(1); // Reset to the first page when language changes
   }, [language, t]);
+
+  const totalPages = Math.ceil(historyData.size / itemsPerPage);
+  const paginatedData = Array.from(historyData.entries()).slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   return (
     <div>
@@ -27,12 +36,29 @@ function DevelopmentHistroy({ language }) {
         </div>
         <div className="history-timeline">
           <div className="history-items">
-            {Array.from(historyData.entries()).map(([date, content]) => (
+            {paginatedData.map(([date, content]) => (
               <div key={date} className="history-item">
                 <h3>{date}</h3>
                 <p>{content}</p>
               </div>
             ))}
+          </div>
+          <div className="pagination">
+            <button
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+            >
+              {t.previous}
+            </button>
+            <span>
+              {currentPage} / {totalPages}
+            </span>
+            <button
+              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+              disabled={currentPage === totalPages}
+            >
+              {t.next}
+            </button>
           </div>
         </div>
       </div>

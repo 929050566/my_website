@@ -13,6 +13,8 @@ import translations from '../i18n/translations';
 function BlogCatalog({ language, _selectedBlog, setSelectedBlog }) {
   const [content, setContent] = useState('');
   const [selectedBlog, _setSelectedBlog] = useState(null); // Local state
+  const [currentPage, setCurrentPage] = useState(1); // Pagination state
+  const blogsPerPage = 10; // Number of blogs per page
   const t = translations[language];
   console.log('selectedBlog', selectedBlog);
 
@@ -27,8 +29,16 @@ function BlogCatalog({ language, _selectedBlog, setSelectedBlog }) {
     { title: t.blog8, file: require('../blogs/ton/ton.md') },
     { title: t.blog9, file: require('../blogs/nft/nft.md') },
     { title: t.blog10, file: require('../blogs/solidity/solidity.md') },
+    { title: t.blog11, file: require('../blogs/solidity_audit/solidity_audit.md') },
+    { title: t.blog12, file: require('../blogs/cosmos/cosmos.md') },
+    { title: t.blog13, file: require('../blogs/kda/kda.md') },
+    { title: t.blog14, file: require('../blogs/golang_contract/golang_contract.md') },
+    { title: t.blog15, file: require('../blogs/wallet/wallet.md') },
 
   ];
+
+  const totalPages = Math.ceil(blogs.length / blogsPerPage); // Calculate total pages
+  const currentBlogs = blogs.slice((currentPage - 1) * blogsPerPage, currentPage * blogsPerPage); // Blogs for the current page
 
   useEffect(() => {
     _setSelectedBlog(_selectedBlog);
@@ -48,6 +58,10 @@ function BlogCatalog({ language, _selectedBlog, setSelectedBlog }) {
     setSelectedBlog(blog); // Notify parent
   };
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
   return (
     <div className="blog-all">
       <div className="history-title">
@@ -55,11 +69,22 @@ function BlogCatalog({ language, _selectedBlog, setSelectedBlog }) {
       </div>
       {!selectedBlog && (
         <div className="blog-list">
-          {blogs.map((blog, index) => (
+          {currentBlogs.map((blog, index) => (
             <div key={index} className="blog-title" onClick={() => handleBlogSelection(blog)}>
               {blog.title}
             </div>
           ))}
+          <div className="pagination">
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index}
+                className={`page-button ${currentPage === index + 1 ? 'active' : ''}`}
+                onClick={() => handlePageChange(index + 1)}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </div>
         </div>
       )}
       {selectedBlog && (
