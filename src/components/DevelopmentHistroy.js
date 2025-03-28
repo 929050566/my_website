@@ -10,13 +10,13 @@ function DevelopmentHistroy({ language }) {
 
   useEffect(() => {
     const data = new Map([
-      ['2022-01-12', t.history7],
-      ['2022-01-10', t.history6],
-      ['2022-01-06', t.history1],
-      ['2022-01-04', t.history2],
-      ['2022-01-03', t.history3],
-      ['2022-01-01', t.history4],
-      ['2021-12-31', t.history5],
+      ['2024-01-12', t.history7],
+      ['2024-01-10', t.history6],
+      ['2024-01-06', t.history1],
+      ['2024-01-04', t.history2],
+      ['2024-01-03', t.history3],
+      ['2024-01-01', t.history4],
+      ['2023-12-31', t.history5],
     ]);
     setHistoryData(data);
     setCurrentPage(1); // Reset to the first page when language changes

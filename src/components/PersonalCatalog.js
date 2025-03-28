@@ -28,6 +28,9 @@ function PersonalCatalog({ language }) {
             <li>{t.skill6}</li>
             <li>{t.skill7}</li>
             <li>{t.skill8}</li>
+            <li>{t.skill9}</li>
+            <li>{t.skill10}</li>
+            <li>{t.skill11}</li>
           </ul>
         </section>
         <section className="contact">

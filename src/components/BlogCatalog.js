@@ -36,6 +36,8 @@ function BlogCatalog({ language, _selectedBlog, setSelectedBlog }) {
     { title: t.blog15, file: require('../blogs/wallet/wallet.md') },
     { title: t.blog16, file: require('../blogs/near/near.md') },
     { title: t.blog17, file: require('../blogs/bitcoin/bitcoin_inscription.md') },
+    { title: t.blog18, file: require('../blogs/wallet/AAwallet.md') },
+    { title: t.blog19, file: require('../blogs/wallet/crypto.md') },
 
   ];
 
