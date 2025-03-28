@@ -7,12 +7,12 @@ import DevelopmentHistroy from './DevelopmentHistroy';
 
 function Catalog() {
     const [activeComponent, setActiveComponent] = useState('personal');
-    const [language, setLanguage] = useState('en'); // New state for language
+    const [language, setLanguage] = useState('zh'); // Default language set to Chinese
     const [isDrawerOpen, setIsDrawerOpen] = useState(false); // State for drawer
     const [selectedBlog, setSelectedBlog] = useState(null); // State for selected blog
 
     const toggleLanguage = () => {
-        setLanguage((prevLanguage) => (prevLanguage === 'en' ? 'zh' : 'en'));
+        setLanguage((prevLanguage) => (prevLanguage === 'zh' ? 'en' : 'zh'));
     };
 
     const toggleDrawer = () => {

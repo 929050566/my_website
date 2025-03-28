@@ -82,7 +82,7 @@ Cryptokitties（广泛使用的不可替代代币）的创始人兼首席技术�
 ## 三. NFT 操作形式
 ![](nft/Aspose.Words.56685758-42d8-4f28-8130-651cffe58581.001.jpeg)
 
-```
+```solidity
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.1;
 
@@ -119,7 +119,8 @@ contract EthNft is ERC721, Ownable {
 }
 ```
 
-```import { Metaplex, keypairIdentity, bundlrStorage } from "@metaplex-foundation/js-next";
+```javascript
+import { Metaplex, keypairIdentity, bundlrStorage } from "@metaplex-foundation/js-next";
 import { Connection, Keypair} from "@solana/web3.js";
 
 
@@ -142,7 +143,7 @@ export async function MintNft(privateKey) {
 }
 ```
 
-```
+```javascript
 import { clusterApiUrl, Connection, Keypair, LAMPORTS_PER_SOL } from  "@solana/web3.js";
 import { createMint, getOrCreateAssociatedTokenAccount, mintTo, setAuthority, transfer } from  "@solana/spl-token";
 
@@ -230,10 +231,10 @@ Solana 的 NFT 通常遵循 **Metaplex Token Metadata Standard**，其核心组�
 - ` `uri：存储 JSON 格式的元数据，指向 Arweave 或 IPFS
 - ` `creators：创作者信息及版税设置。
 
-```
+```json
 {
-  "name": "DappLink NFT",
-  "symbol": "DPL",
+  "name": "my NFT",
+  "symbol": "MNFT",
   "description": "An exclusive NFT from DappLink.",
   "image": "https://arweave.net/abc123xyz",
   "attributes": [
@@ -269,7 +270,7 @@ BRC -20 代币标准于 2023 年 3 月 8 日创建的比特币实验性可替代
 #### 3.3 mint
 链上：inscribe 一个表示 mint operation 的 sat，并立即 transfer 给 minter 地址
 
-```
+```json
 {
     "p": "brc20",
     "op": "mint",
@@ -288,7 +289,7 @@ BRC -20 代币标准于 2023 年 3 月 8 日创建的比特币实验性可替代
 **链上**：
 - 先 inscribe 表示 transfer operation 的 sat，发给 sender 地址
 
-```
+```json
 {
     "p": "brc20",
      "op": "transfer",
@@ -317,7 +318,7 @@ BRC -20 代币标准于 2023 年 3 月 8 日创建的比特币实验性可替代
 ##### 3.6.2 符文和铭文的标准协议
 Ordinals 序数铭文协议（BRC-20）：BRC-20 是基于 Ordinals 实现的比特币原生代币标准，主要依赖文本铭文来定义代币信息，常见的 JSON 格式如下：
 
-```
+```json
 {
   "p": "brc-20",
   "op": "mint",
@@ -366,7 +367,7 @@ Runes 符文协议：符文协议是比特币生态的一种新代币协议，�
 - 对于 BRC-20，解析代币总供应量、持有人信息、交易历史等。
 - 对于符文，解析符文 ID、铸造数量、转账记录等。
 
-```
+```python
 from bitcoinrpc.authproxy import AuthServiceProxy
 
 rpc_user = "user"
@@ -522,7 +523,7 @@ function \_mintBatch(address to, uint256[] memory ids, uint256[] memory values, 
 ```
 
 ### 3. Solana
-```typescript
+```javascript
 let fromAddresses: string[] = [];<br>`  `let toAddresses: string[] = [];<br>`  `let amounts: string[] = [];<br>`  `for(let i=0; i<instructions.length; i++){<br>`    `const instruction = instructions[i];<br>`    `const obj = {};<br>`    `postTokenBalances?.forEach(item=>{<br>`      `// tokenAddress 对应 owner<br>`      `obj[accountKeys[item.accountIndex].pubkey] = {owner: item.owner, mint: item.mint};<br>`    `});<br>`    `if(instruction.parsed && instruction.program){<br>`      `const {parsed:{type, info}, program} = instruction;<br>`      `if(program==="system" && type==="transfer"){<br>`        `fromAddresses.push(info.source);<br>`        `toAddresses.push(info.destination);<br>`        `amounts.push(info.lamports);<br>`      `}else if(program==="spl-token" && (type==="transfer" || type==="transferChecked") && obj[info.source].mint === contractAddr && obj[info.destination].mint === contractAddr){<br>`        `fromAddresses.push(obj[info.source].owner || info.authority || info.multisigAuthority);<br>`        `let toAddr = obj[info.destination].owner;<br>`        `if(!toAddr){<br>`          `const toAddrObj = instructions.find(ele => {<br>`            `return ele.program === "spl-associated-token-account"<br>`              `&& ele.parsed.type === "create"<br>`              `&& ele.parsed.info.account === info.destination<br>`          `});<br>`          `toAddr = toAddrObj.parsed.info.wallet;<br>`        `}<br>`        `toAddresses.push(toAddr);<br>`        `amounts.push(info.amount || info.tokenAmount.amount);<br>`      `}else{<br>`        `fromAddresses.push("");<br>`        `toAddresses.push("");<br>`        `amounts.push("0");<br>`      `}<br>`    `}else{<br>`      `fromAddresses.push("");<br>`      `toAddresses.push("");<br>`      `amounts.push("0");<br>`    `}
 ```
 
@@ -542,7 +543,7 @@ let fromAddresses: string[] = [];<br>`  `let toAddresses: string[] = [];<br>`  `
 
 ### 3. NFTTradePlatform contracts Demo
 
-```
+```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
