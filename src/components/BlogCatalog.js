@@ -34,6 +34,7 @@ function BlogCatalog({ language, _selectedBlog, setSelectedBlog }) {
     { title: t.blog13, file: require('../blogs/kda/kda.md') },
     { title: t.blog14, file: require('../blogs/golang_contract/golang_contract.md') },
     { title: t.blog15, file: require('../blogs/wallet/wallet.md') },
+    { title: t.blog16, file: require('../blogs/near/near.md') },
 
   ];
 
