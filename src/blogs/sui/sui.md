@@ -709,6 +709,3 @@ HD 钱包和交易所钱包不同之处有以下几点：
   - https://suiscan.xyz/
   - https://suivision.xyz/
 - Typescript: https://sdk.mystenlabs.com/typescript/install
-
-<!-- 以下为清理说明：已移除无内容或纯白色图片 -->
-<!-- Removed image markers: Aspose.Words.61ds.729761e0-a650-4c4d-a734-956ef7f891dc.002.png, 003.png, ...等 -->
