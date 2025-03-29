@@ -165,7 +165,6 @@ def pubkey_to_p2sh_p2wpkh_addr(pubkey_compressed: bytes) -> bytes:
     return address
 ```
 
-- 其他格式的地址可以看代码：Github 代码：https://github.com/the-web3/wallet-python-sdk
 - BIP44 各个链的序号定义：https://github.com/satoshilabs/slips/blob/master/slip-0044.md
 
 ### 3. NodeJS 离线地址生成
