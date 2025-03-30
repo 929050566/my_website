@@ -23,6 +23,7 @@ function BlogCatalog({ language, _selectedBlog, setSelectedBlog }) {
     // { title: t.blog2, file: require('../blogs/myblog.md') },
     { title: t.blog3, file: require('../blogs/eth/eth.md') },
     { title: t.blog20, file: require('../blogs/eth/eth_transcation_types.md') },
+    { title: t.blog22, file: require('../blogs/wallet/decentralized_wallet.md') },
     { title: t.blog4, file: require('../blogs/bitcoin/bitcoin_offline.md') },
     { title: t.blog5, file: require('../blogs/go/go_gc.md') },
     { title: t.blog6, file: require('../blogs/sui/sui.md') },
@@ -39,6 +40,7 @@ function BlogCatalog({ language, _selectedBlog, setSelectedBlog }) {
     { title: t.blog17, file: require('../blogs/bitcoin/bitcoin_inscription.md') },
     { title: t.blog18, file: require('../blogs/wallet/AAwallet.md') },
     { title: t.blog19, file: require('../blogs/wallet/crypto.md') },
+    { title: t.blog21, file: require('../blogs/solana/solana.md') },
 
   ];
 

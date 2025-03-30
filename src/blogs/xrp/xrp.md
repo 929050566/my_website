@@ -116,7 +116,7 @@ export function signTransaction(params) {
 
 文中列举了获得签名所需参数、获取账户 Sequence、获取最新区块、根据块号或交易 Hash 查询区块信息，以及发送交易的示例请求。（已删除所有空白图片）
 
-```markdown
+```java
 - 获取签名的 currency 和 issuer  
   接口方法：account_offers  
   请求示例：  
