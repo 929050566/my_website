@@ -2,6 +2,7 @@
   "name": "my_personal_website",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
     "cra-template": "1.2.0",
     "github-markdown-css": "^5.8.1",
